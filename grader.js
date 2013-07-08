@@ -81,10 +81,12 @@ var buildfn = function(checksfile) {
         if (result instanceof Error) {
             console.error('Error: ' + util.format(response.message));
         } else {
+            $ = cheerio.load(result);
             var checks = loadChecks(checksfile).sort();
             var out = {};
             for(var ii in checks) {
-                var present = result.indexOf(checks[ii]) > 0;
+                // var present = result.indexOf(checks[ii]) > 0;
+                var present = $(checks[ii]).length > 0;
                 out[checks[ii]] = present;
             }
             var outJson = JSON.stringify(out, null, 4);
