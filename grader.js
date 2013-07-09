@@ -66,40 +66,45 @@ var loadChecks = function(checksfile) {
 
 var checkHtmlFile = function(htmlfile, checksfile) {
     $ = cheerioHtmlFile(htmlfile);
+    var out = doChecks( $, checksfile );
+    return out;
+};
+
+var checkURL = function(checksfile) {
+    var process = function(result, response) {
+        if (result instanceof Error) {
+            console.error('Error: ' + util.format(response.message));
+        } else {
+            $ = cheerio.load(result);
+    	    // console.log("$ " , Object.prototype.toString.call($));
+            // console.log("html ", $.html());
+            var out = doChecks( $, checksfile );
+            logJson(out);
+        }
+    };
+    return process;
+};
+
+var doChecks = function($, checksfile) {
     var checks = loadChecks(checksfile).sort();
     var out = {};
     for(var ii in checks) {
-        var present = $(checks[ii]).length > 0;
-        out[checks[ii]] = present;
+          var present = $(checks[ii]).length > 0;
+          out[checks[ii]] = present;
     }
     return out;
 };
 
 
-var buildfn = function(checksfile) {
-    var proc = function(result, response) {
-        if (result instanceof Error) {
-            console.error('Error: ' + util.format(response.message));
-        } else {
-            $ = cheerio.load(result);
-            var checks = loadChecks(checksfile).sort();
-            var out = {};
-            for(var ii in checks) {
-                // var present = result.indexOf(checks[ii]) > 0;
-                var present = $(checks[ii]).length > 0;
-                out[checks[ii]] = present;
-            }
-            var outJson = JSON.stringify(out, null, 4);
-            console.log(outJson);
-        }
-    };
-    return proc;
-};
-
 var clone = function(fn) {
     // Workaround for commander.js issue.
     // http://stackoverflow.com/a/6772648
     return fn.bind({});
+};
+
+var logJson = function(checkJson) {
+       var outJson = JSON.stringify(checkJson, null, 4);
+       console.log(outJson);
 };
 
 if(require.main == module) {
@@ -112,10 +117,9 @@ if(require.main == module) {
 
     if (program.url == "???") {
        var checkJson = checkHtmlFile(program.file, program.checks);
-       var outJson = JSON.stringify(checkJson, null, 4);
-       console.log(outJson);
+       logJson( checkJson );
     } else {
-       var proc = buildfn(program.checks);
+       var proc = checkURL(program.checks);
        rest.get(program.url).on('complete', proc);
     }
 } else {
