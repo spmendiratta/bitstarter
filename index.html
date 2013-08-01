@@ -106,10 +106,10 @@
       }
     </style>
   </head>
+
   <body>
     <!-- From http://twitter.github.io/bootstap/examples/starter=template.html -->
     <!-- div class="navbar navbar-fixed-top" -->
-    
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -131,7 +131,13 @@
       </div>
     </div>
 
+    <!-- We use row-fluid inside containers to achieve a resizable layout. -->
+    <!-- blogs.endjin.com/2013/04/tips-for-implementing-responsive-designs-using-bootstrap/ -->
+    <!-- http://stackoverflow.com/a/12270322 -->
     <div class="container">
+      <!-- Font and paired font of .heading/.subheading and body from Google Fonts -->
+      <!-- www.google.com/fonts/specimen/Ubuntu -->
+      <!-- www.google.com/fonts/specimen/Ubuntu#pairings -->
       <div class="row-fluid heading">
         <div class="span12">
           <!-- h1>ex<font color=#FF9933>t&ouml;pi</font>a</h1 -->
@@ -140,21 +146,25 @@
       </div>
       <div class="row-fluid heading">
         <div class="span12">
+          <!-- Special typography from Bootstrap for lead paragraph. -->
+          <!-- http://twitter.github.io/bootstrap/base-css.html#typography -->
           <p class="lead">exotic hats from around the world</p>
         </div>
       </div>
       <div class="row-fluid pitch">
         <div class="span5 offset1 video">
-          <!-- img class="img-polaroid" src="http://placehold.it/480X300" -->
-          <!-- img src="hat.jpg" width="480" height="300" -->
-          <!-- img class="img-polaroid" src="http://www.portlandmercury.com/binary/1aad/1272654620-kentucky-derby-hats-10.jpg" -->
-          <!-- img class="img-polaroid" src="http://t3.gstatic.com/images?q=tbn:ANd9GcQlKk043d_l3b4edDmDCykx6urJSousaY-13HXSsNQ7R1quBwOs" width="480" height="300" -->
-          <img class="img-polaroid" src="http://t0.gstatic.com/images?q=tbn:ANd9GcQp9bD2aHDqgdm-HJHOdcWLNAb7Ea7gbRNZvUEx1rtoksi_s7S5" width="480" height="300">
+          <!-- img class="img-polaroid" alt="Placeholder" src="http://placehold.it/480X300" -->
+          <img class="img-polaroid" alt="topi-1" src="http://t0.gstatic.com/images?q=tbn:ANd9GcQp9bD2aHDqgdm-HJHOdcWLNAb7Ea7gbRNZvUEx1rtoksi_s7S5" width="480" height="300">
         </div>
+        <!-- We define a new 'actions' div to contain statistics, order, and share buttons.-->
         <div class="span5 actions">
           <div class="span8 offset2">
-            <div class="statistics">
+            <div class="row-fluid statistics">
               <div class="span4">
+                <!-- linediv-l and linediv-r give dividing lines that look
+                different in horizontal and vertical layouts, illustrating
+                media queries. -->
+
                 <div class="linediv-l">
                   <h3>3</h3> <p> backers</p>
                 </div>
@@ -172,38 +182,54 @@
             </div>
           </div>
 
-          <div class="span10 offset1">
+          <div class="row-fluid">
+           <div class="span10 offset1">
+            <!-- Bootstrap progress bar -->
+            <!-- http://twitter.github.io/bootstrap/components.html#progress -->
             <div class="thermometer progress active">
               <div class="bar bar-success" style="width: 80%;"></div>
               <div class="bar bar-warning" style="width: 20%;"></div>
             </div>
+           </div>
           </div>
-          <div class="span6 offset3 order">
+          <div class="row-fluid">
+           <div class="span6 offset3 order">
+            <!-- Standard Bootstrap button -->
+            <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
             <button class="btn btn-success btn-large">Preorder</button>
+           </div>
           </div>
-          <div class="span8 offset2 social">
+          <div class="row-fluid">
+           <div class="span8 offset2 social">
+            <!-- Social buttons are not included in default Bootstrap. -->
+            <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
             <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button>
             <button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook</button>
+           </div>
           </div>
         </div>
       </div>
 
-      <!-- Marketing copy -->
+      <!-- Beyond this part the marketing copy begins. -->
+      <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/text-align -->
+      <!-- http://twitter.github.io/bootstrap/base-css.html#images -->
+      <!-- http://placehold.it -->
       <div class="row-fluid section1">
         <div class="span5 offset1 asset">
           <p>
             Admittedly, this is a very simple idea. It clearly falls in the
-            category of small business, not a startup. It is hard to envision
-            this business growing fast (key attribute of startups). 
-            Another attribute of successful startups, world domination, 
-            is not even remotely our intent.  We see this business growing, 
-            at best, at a glacial pace. 
+            category of a small business and not a startup. Moreover, before
+            delving into a complex web application, this project seemed manageable. 
+            As much as we would like to see this effort succeed, at the very least, 
+            we will gain an understanding of the key technologies involved in the 
+            deployment of a modern ecommerce website. In addition, it will be 
+            interesting to see how this website can be promoted on the internet 
+            using Google or Facebook market analytics tools.
           </p>
         </div>
         <div class="span5 copy copy-right">
-          <!-- img class="img-polaroid" src="http://placehold.it/480X300" -->
-          <!-- img class="img-polaroid" src="http://t0.gstatic.com/images?q=tbn:ANd9GcQbxPiY4GZeU2-3CW-AEqCF2R0QOoi_WylhWTg0FBStg4cHDH1_" width="480" height="300" -->
-          <img class="img-polaroid" src="http://t2.gstatic.com/images?q=tbn:ANd9GcQaWROOpXOaXijXo55kisa4n5vow3Sj81zpPPVg7ZhRPvrYOMzA" width="480" height="300">
+          <!-- img class="img-polaroid" alt="Placeholder" src="http://placehold.it/480X300" -->
+          <img class="img-polaroid" alt="topi-2" src="http://t2.gstatic.com/images?q=tbn:ANd9GcQaWROOpXOaXijXo55kisa4n5vow3Sj81zpPPVg7ZhRPvrYOMzA" width="480" height="300">
         </div>
       </div>
 
@@ -219,33 +245,48 @@
           </p>
         </div>
         <div class="span5 asset">
-          <img class="img-polaroid" src="http://placehold.it/480X300">
+          <img class="img-polaroid" alt="Placeholder" src="http://placehold.it/480X300">
         </div>
       </div -->
       <div class="row-fluid section2">
         <div class="span10 offset1 copy copy-right">
           <p>
-            <font class="orangey">Motivation: <br></font> 
-            More than viability of the project, the objective is to understand the key 
-            technologies involved in deployment of a modern ecommerce website. 
-            In addition, it will be interesting to see how this website can be promoted 
-            on the internet using Google or Facebook market analytics tools.
+            <!-- font class="orangey">Motivation: <br></font -->
+            <h3> Motivation: </h3>
+               <p>
+               <b>Promotion of indigenous crafts:</b>
+               This is a key objective of the enterprise. Beginning with hats from 
+               Himanchal Pradesh, a mountainous state of India, we will soon cover  
+               other states of India. Within a year, we will start showcasing hats from Africa 
+               and South America. Gradually, we will cover the whole world.
+               </p>
+               <p>
+               <b>Fair Trade:</b>
+               One of the bedrock principles of the business is a firm commitment to fair trade.
+               </p>
+               <p>
+               <b>Evolution:</b>
+               Although initially we will be offering only generic designs, there are plans 
+               to offer customized hats. We envision this site evolving as market place for ethnic hats.
+               In the process, we will eventually be a 'a portal for all topi aficionados'.
+               </p>
+              </ul>
           </p>
-          <p>
+          <!-- p>
             <font class="orangey">Differentiators:<br></font> 
-             _ Bedrock commitment to fair trade<br>
-             _ Promotion of indigenous crafts<br>
-             _ Evolution as a market place for ethnic hats<br>
-              <!--ul>
-                  <li>Commitment to free and fair trade </li> 
-                  <li>Promote indigenous crafts </li>
-                  <li>Evolve as a market place for ethnic hats </li>
-              </ul -->
-          </p>
+              <ul>
+                  <li> Promotion of indigenous crafts</li>
+                  <li> Bedrock commitment to fair trade</li>
+                  <li> Evolution as a market place for ethnic hats</li>
+                  <li> A portal for all topi aficionados</li>
+              </ul>
+          </p-->
         </div>
       </div>
 
-
+      <!-- For the FAQ, we introduce a little bit of JS, using the accordion. -->
+      <!-- This brings in jquery.js and bootstrap.js as dependencies. -->
+      <!-- http://twitter.github.io/bootstrap/javascript.html#collapse -->
       <div class="row-fluid faq">
           <div class="span10 offset1">
             <h3>FAQ</h3>
@@ -253,24 +294,25 @@
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <a class="accordion-toggle" data-toggle="collapse"
-                     data-parent="#accordion2" href="#collapseOne"> What is a 'topi' ? </a>
+                     data-parent="#accordion2" href="#collapseOne"> What is a topi ? </a>
                 </div>
                 <div id="collapseOne" class="accordion-body collapse">
                   <div class="accordion-inner">
-                    'Topi' in India and many South Asian countries  means a hat in all 
-                    its wonderful variations. For sake of completeness, topi also means 
-                    a sub-Saharan antelope - that is purely coincidental, not our focus at all.
+                    Topi in India and many South Asian countries means a hat in all 
+                    its variations. For sake of completeness, Webster defines topi as 
+                    a sub-Saharan antelope also - that is just coincidental, not our focus at all.
                   </div>
                 </div>
               </div>
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <a class="accordion-toggle" data-toggle="collapse"
-                     data-parent="#accordion2" href="#collapseTwo">What does this business aspire to be ? </a>
+                     data-parent="#accordion2" href="#collapseTwo">What are the future plans ? </a>
                 </div>
                 <div id="collapseTwo" class="accordion-body collapse">
                   <div class="accordion-inner">
-                    A portal for all topi aficionados.
+                    Initially, we will feature hats from India only. Within a year, we will 
+                    diversify to other regions beginning with Africa and South America.
                   </div>
                 </div>
               </div>
@@ -280,9 +322,11 @@
       </div>
 
  
+      <!-- Not crucial, but we put this under a CC By-SA 3.0 license. -->
+      <!-- http://creativecommons.org/licenses/ -->
       <div class="row-fluid footer">
         <div class="span12">
-          <p> This work is lecensed under
+          <p> This work is licensed under
               the <a href="http://creativecommons.org/licenses/by-sa/3.0/"> CC By SA 3.0 </a> 
               without all cruft that would otherwise be put at the bottom of the page.
           </p>
